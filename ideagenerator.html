@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDEA GENERATOR</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+</head>
+<style>
+    .custom-container {
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 20px;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    body {
+        background-image: url('https://wallpapers.com/images/hd/retro-game-background-5tj74o7tf3oft3qe.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+<body>
+    <div class="custom-container">
+        <h1 style="text-align: center; font-size: 4rem;">IDEA GENERATOR</h1>
+        <p style="font-size: 2rem; text-align: center;">Genre: <span id="genre"></span> </p>
+        <p style="font-size: 2rem; text-align: center;">Setting: <span id="setting"></span> </p>
+        <p style="font-size: 2rem; text-align: center;">Theme: <span id="theme"></span> </p>
+        <p style="font-size: 2rem; text-align: center;">Location: <span id="location"></span> </p>
+
+        
+    </div>
+    <script>
+        const genres = ['RPG', 'Racing', 'Slasher', 'Shooter', 'Fighting', 'Adventure', 'Platformer', "Beat 'em up", 'Survival', 'Puzzle', 'Board Game', 'Horror', 'Sandbox'];
+        const locations = ['Egypt', 'America', 'Russia', 'Japan', 'India', 'Africa', 'Germany', 'Israel', 'Arctica', 'Romania', 'Arab Emirates'];
+        const settings = ['Stonepunk', 'Sandalpunk', 'Middlepunk', 'Dungeonpunk', 'Swordpunk', 'Steampunk', 'Clockpunk', 'Dieselpunk', 'Atompunk', 'Formicapunk', 'Biopunk', 'Solarpunk', 'Cyberpunk', 'Salvagepunk', 'Dreampunk', 'Mythpunk', 'Stitchpunk', 'Elfpunk', 'Skypunk', 'Silkpunk'];
+        const themes = ['Nazi', 'Vampires', 'Werewolves', 'Magic', 'Darkness', 'Food', 'Madness', 'War', 'Martial Arts', 'Demons', 'Space', 'Mecha', 'Samurai', 'Western', 'Aliens', 'Cold War', 'Pirates', 'Robots', 'Zombies', 'Spy', 'Dinosaurs', 'Hacker', 'Parkour', 'Mafia', 'Submarine', 'Strange City'];
+
+        let gameGenre = [];
+        let gameLocation = [];
+        let gameSetting = [];
+        let gameTheme = [];
+
+        function getRandom() {
+            const maxGenres = genres.length - 1;
+            const maxLocations = locations.length - 1;
+            const maxSettings = settings.length - 1;
+            const maxThemes = themes.length - 1;
+            const minZero = Math.ceil(0)
+
+            gameGenre.push(genres[Math.floor(Math.random() * (maxGenres - minZero + 1)) + minZero]);
+            gameLocation.push(locations[Math.floor(Math.random() * (maxLocations - minZero + 1)) + minZero]);
+            gameSetting.push(settings[Math.floor(Math.random() * (maxSettings - minZero + 1)) + minZero]);
+            gameTheme.push(themes[Math.floor(Math.random() * (maxThemes - minZero + 1)) + minZero]);
+        }
+        getRandom();
+
+        function fillUpArrays() {
+            document.getElementById('genre').innerHTML = gameGenre;
+            document.getElementById('location').innerHTML = gameLocation;
+            document.getElementById('setting').innerHTML = gameSetting;
+            document.getElementById('theme').innerHTML = gameTheme;
+        }
+        fillUpArrays()
+    </script>
+
+</body>
+
+</html>
